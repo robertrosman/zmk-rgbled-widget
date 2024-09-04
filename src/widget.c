@@ -162,7 +162,7 @@ ZMK_SUBSCRIPTION(led_battery_listener, zmk_battery_state_changed);
 #if !IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
 void indicate_layer(void) {
     uint8_t index = zmk_keymap_highest_layer_active();
-    static const enum led_color_t color = index % 8;
+    const enum led_color_t color = index % 8;
     static const struct blink_item blink = {.duration_ms = CONFIG_RGBLED_WIDGET_LAYER_BLINK_MS,
                                             .color = color,
                                             .sleep_ms = CONFIG_RGBLED_WIDGET_LAYER_BLINK_MS};
